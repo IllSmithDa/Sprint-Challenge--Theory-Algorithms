@@ -66,7 +66,8 @@ both `antelope` and `antelopes`.)
     a single character which can be represented with `\e` in the regex.)
 
         ESC[12;45f =  /E{1}S{1}C{1}\[\d+.?\;\d+.?f/
-        ESC[1m = /E{1}S{1}C{1}\[\d+.?\D/
+        ESC[1m = /E{1}S{1}C{1}\[\d+.?m/
+        both = /E{1}S{1}C{1}\[\d+.?\D|[;\d\D]/  
 
 
   * Draw a state machine diagram for a VT-100 that can consume regular
