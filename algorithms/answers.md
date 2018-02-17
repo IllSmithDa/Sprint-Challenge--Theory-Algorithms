@@ -7,13 +7,19 @@
     isn't not taken into account in run time especially in Big O. Therefore, the run time should still 
     be O(n).
 
+    Actual answer is n^3 because n is multiplied by n thre times 
+
     c. This functinons contains three for loops with the two inner for loop's run time being O(n). Thw two inner loops is guarnteed to run through the entire iteration. However, the outer for loop The total run time in Big O is more toward log n because it only runs half of iteration that the two inner loops are running assuming that n here is the length of the array. Therefore the Big O is 
-    O(n^2 log n). 
+    O(n^2 log n).
+
+    Actual answer is that O(sqrt(n)) because the inner for loops are are all constants because it is not based on input size but is always 8. 
 
     d. The Outer loop is logarithmic as it only iterates through half the data making it O(log n). The inner loop is a standard iteration through the array making it O(n). By combining the two, we are able to get a run time of O(n log n).
 
     e. There are a total for 4 for loops and non of them seem to be logarithmic as each loop seems to iterate through most if not all the data set. Therefore, the appropriate run time appears to be
     O(n^4). At this point, the algorithm reaches close to or reaches to exponential run time. 
+
+    Actual Answer the inner most loop is constant so the actual answer is O(n^3).
 
     f. This seems to be a mere recursive iteration until the base case bunnies = 0 is reached. An algorithm like this will usually have a run time of O(n) regardless of the constant '2' in the return 
     statement. Therefore, the run time in Big O is O(n). 
@@ -27,10 +33,14 @@
     a[j], a[i] n = number of elements in the array or a.length -1; where j >=i; search iteratively
 
     let highestVal = 0;
+    let minimumVal = arr[0];
     for (let i = 0; i <= n; i++) {
         let j = i + 1;
-        if(arr[j] - arr[i] > highestVal) {
+        if(arr[j] - minimumVal > highestVal) {
             highestVal = arr[j] - arrr[i];
+        }
+        if(minimumVal > arr[i]) {
+            minimumVal = arr[i];
         }
     }
     return highestVal;
@@ -55,4 +65,4 @@
     a. Since the less quicksort is neverg going to be used as the pivot is always chosent to be first element which means that x will always be greater than pivot assuming array is sorted. The finding of pivot itself is O(1) as you are always finding the first element. The rest is merely appending every value to greater quicksort and it seems to simply iterate without dividing anything when first elemnt is the pivot evn though it is technically divide and conquer. The recursive function itself is also iterating which makes this two O(n) which makes it a quadratice algorithm with a total run time of 
     O(n^2). 
 
-    b. Now that both quicksort are running, The divide and conquer method seems to actually work which could make one of the processes a log n. However, one problem with this idea is that the amount of work is still the same as the for each still seems to iterate through the entire array and just appends differently to the lesser array rather than the entire array to the greater array. It still iterates the entire array which still leaves the run time at O(n^2).
+    b. Now that both quicksort are running, The divide and conquer method seems to actually work which could make one of the processes a log n. This would lead to he best case scenario which leads to a log linear which is O(n log n)
